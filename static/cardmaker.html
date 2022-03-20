@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/cardmaker.css" />
+  <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+          rel="stylesheet"
+  />
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    $(document).ajaxStart(function(e) { window.ajaxCheck = 1; });
+    $(document).ajaxStop(function(e) { window.ajaxCheck = null; });
+
+    $(document).ready( function() {
+      $("header").load("/common/header.html");
+      $("footer").load("/common/footer.html");
+      if( window.ajaxCheck == 1 ) return false;
+    });
+  </script>
+</head>
+	<title>Gitofolio - cardmaker</title>
+<body>
+<div class="wrap">
+  <article>
+    <iframe class="iframe1" name="iframe1" style="display:none"></iframe>
+    <form id="form" method="post" target="iframe1">
+      <div class="title">
+        <p onclick="location.href='/'" style="cursor: pointer;">Gitofolio</p>
+        <p>&nbsp;-&nbsp;cardmaker</p>
+        <!-- <div class="closebutton"  onclick="completeLink();">&#215;</div> -->
+      </div>
+      <div class="explain">Make portfolio card, Manage portfolio</div>
+      <div class="makebox">
+        <div class="design">
+          <div class="cardcolor">
+            <p style="width: 300px;">Card colors</p>
+        <ul class="colorBox">
+          <!-- 선택시 카드 색상 변경 / 안에 있는 속성들 거리 유지 동일하게 설정 -->
+          <li>
+            <input type="button" name="color" value="#FFFFFF"
+                   style="background: #FFFFFF" onclick="cardColor('#FFFFFF');"/>
+          </li>
+          <li>
+            <input type="button" name="color" value=""
+                   style="background: #2D2D2D" onclick="cardColor('#2D2D2D');"/>
+          </li>
+          <li >
+            <input type="button" name="color"  value="" class="neon"
+                   style="background: #0D1017; border: unset;" onclick="cardColor('#0D1017');"/>
+          </li>
+          <li>
+            <input type="button" name="color"  value="" class="egg"
+                   style="background: #FCC400" onclick="cardColor('#FCC400');"/>
+          </li>
+        </ul>
+      </div>
+      <div class="editor">
+        <p style="width: 95px">Text Color</p>
+        <ul class="editorbox">
+          <li>
+            <div class="color-picker"><input type="color" value="#000000" onchange="textcolor(this.value);"></div>
+            <label class="colorLabel">#000000</label>
+          </li>
+        </ul>
+      </div>
+</div>
+        <div style="display:flex;">
+          <p style="width:150px;">Card linked url</p>
+          <p class="wrongurl" style="display: none;">
+            올바른 url 형식이 아닙니다.</p></div>
+        <input type="url" class="urlInput" name="url" placeholder="https://..."/>
+
+        <div class="scrollbox">
+          <div class="card">
+            <div class="cardbox">
+              <div class="card-top">
+                <div class="img">
+                  <img class="userImg" src="">
+                  <svg class="eggImg" style="display: none;" width="60" height="61" viewBox="0 0 60 61" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M60 31.75C60 46.2475 38.4975 61 24 61C9.50253 61 0 41.9975 0 27.5C0 13.0025 18.2525 0 32.75 0C47.2475 0 60 17.2525 60 31.75Z" fill="#FFD233"/>
+                  </svg>
+                </div>
+                <div class="card-name">
+                  <!--사용자 이름 넣기-->
+                  <div class="name"><p class="userName" style="margin: unset"></p></div>
+                  <div class="gitofolio">Gitofolio</div>
+                </div>
+                <div class="visitor">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_1770_28)">
+                      <rect class="personback" width="20" height="20" rx="10" fill="white"/>
+                      <path class="person" d="M18 20C18 24.4183 14.4183 28 10 28C5.58172 28 2 24.4183 2 20C2 15.5817 5.58172 12 10 12C14.4183 12 18 15.5817 18 20Z" fill="#2D2D2D"/>
+                      <circle class="person" cx="10" cy="7" r="3" fill="#2D2D2D"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_1770_28">
+                        <rect width="20" height="20" rx="10" fill="white"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                  <p class="num">0</p>
+                </div>
+              </div>
+              <div class="textarea" name="text" placeholder="You can make up to 5 cards." maxlength="1000" value="" contenteditable="true"
+                   onkeyup="resize(this);" style="height: 16px; color: #000000;"></div>
+              <svg class ="arrowStyle" width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="arrow" d="M1 7C0.447715 7 0 7.44772 0 8C0 8.55228 0.447715 9 1 9L1 7ZM16.7071 8.70711C17.0976 8.31658 17.0976 7.68342 16.7071 7.29289L10.3431 0.928932C9.95262 0.538408 9.31946 0.538408 8.92893 0.928932C8.53841 1.31946 8.53841 1.95262 8.92893 2.34315L14.5858 8L8.92893 13.6569C8.53841 14.0474 8.53841 14.6805 8.92893 15.0711C9.31946 15.4616 9.95262 15.4616 10.3431 15.0711L16.7071 8.70711ZM1 9L16 9V7L1 7L1 9Z" fill="#2D2D2D"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <p class="overwritten">
+          * It can be little bit different from real card</p>
+        <input class="whiteButton" type="submit" value="Complete"
+               onclick="goToComplete();"/>
+      </div>
+    </form>
+    <div class="cardcomplete" style="display:none;">
+      <div class="title">
+        <p onclick="location.href='/'" style="cursor: pointer;">Gitofolio</p>
+        <p>&nbsp;-&nbsp;complete</p>
+        <!-- <div class="closebutton"  onclick="completeLink();">&#215;</div> -->
+      </div>
+      <div class="explain">Make portfolio card, Manage portfolio</div>
+      <div class="completebox">
+        <p>Card result</p>
+        <div class="cardshow">
+          <img class="profileImg" src="">
+        </div>
+        <ul>
+          <li>
+            <button class="blackButton" onclick="completeLink();">Personal page</button>
+          </li>
+          <li>
+            <button class="whiteButton" onclick="editLink();">Edit</button>
+          </li>
+          <li>
+            <button class="yellowButton" style="margin-bottom: 28px;" onclick="copyLink();">Copy link</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </article>
+</div>
+<div class="blur"></div>
+<script src="/js/cardmaker.js"></script>
+</body>

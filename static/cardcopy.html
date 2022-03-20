@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/cardcopy.css" />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+            rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ajaxStart(function(e) { window.ajaxCheck = 1; });
+        $(document).ajaxStop(function(e) { window.ajaxCheck = null; });
+
+        $(document).ready( function() {
+            $("header").load("/common/header.html");
+            $("footer").load("/common/footer.html");
+            if( window.ajaxCheck == 1 ) return false;
+        });
+    </script>
+	<title> Gitofolio - cardcopy </title>
+</head>
+<body>
+<div class="wrap">
+    <article>
+        <div class="movearrow">
+            <p>How To Use</p>
+            <div></div>
+        </div>
+        <div class="cardcopybox">
+            <div class="cardcopy">
+                <div class="title">
+                    <p onclick="location.href='/'" style="cursor: pointer;">Gitofolio</p>
+                    <p>&nbsp;-&nbsp;cardcopy</p>
+                    <!-- <div class="closebutton"  onclick="completeLink();">&#215;</div> -->
+                </div>
+                <div class="explain">Make portfolio card, Manage portfolio</div>
+                <div class="copybox">
+                    <p>Card colors</p>
+                    <ul class="colorBox" style="list-style-type: none;">
+                        <!-- 선택시 카드 색상 변경 / 안에 있는 속성들 거리 유지 동일하게 설정 -->
+                        <li>
+                            <input type="button" name="color" value="#FFFFFF"
+                                   style="background: #FFFFFF" onclick="cardColor('white');"/>
+                        </li>
+                        <li>
+                            <input type="button" name="color" value=""
+                                   style="background: #2D2D2D" onclick="cardColor('black');"/>
+                        </li>
+                        <li >
+                            <input type="button" name="color"  value="" class="neon"
+                                   style="background: #0D1017; border: unset;" onclick="cardColor('neonpurple');"/>
+                        </li>
+                        <li >
+                            <input type="button" name="color"  value="" class="egg"
+                                   style="background: #FCC400;" onclick="cardColor('egg');"/>
+                        </li>
+                    </ul>
+                    <p>Card result</p>
+                    <div class="cardshow">
+                        <img class="profileImg" src="">
+                    </div>
+                    <div class="size">
+                        <p>Card size</p>
+                        <div class="sizeBar">
+                            <div class="moveBar">
+                            </div>
+                        </div>
+                        <span class="percent">100%</span>
+                    </div>
+                    <button class="whiteButton" onclick="copyToClipboard();">Copy card</button>
+                </div>
+            </div>
+            <div class="how_to_use" style="display:none;">
+                <!-- api에서 유저 이름 가져오기 -->
+                <div class="preview">
+                    <p class="userName" style="margin: unset">/ Readme.md - preview</p>
+                </div>
+                <hr class="line1" />
+                <ul class="contents">
+                    <!-- api에서 유저 이름 가져오기 -->
+                    <li>👋 Hi, I’m&nbsp;<p class="userName" style="margin: unset; display: inline;"></p></li>
+                    <li>👀 I’m interested in ...</li>
+                    <li>🌱 I’m currently learning ...</li>
+                    <li>💞️ I’m looking to collaborate on ...</li>
+                    <li>📫 How to reach me ...</li>
+                </ul>
+                <div class="link">
+                    <p>Paste link on your site</p>
+                    <div class="linkExample">
+                    <span style="display: flex; align-items: center;">&lt;a href = “...”&gt;&nbsp;&nbsp;&nbsp;
+                      <div class="dash"></div><div class="describe">&nbsp;&nbsp;your portfolio link</div></span>
+                        <span style="display: flex; align-items: center;">&nbsp;&nbsp;&nbsp;&lt;img src = “...”/&gt;&nbsp;&nbsp;&nbsp;
+                      <div class="dash"></div><div class="describe">&nbsp;&nbsp;your portfolio card image</div></span>
+                        <span>&lt;/a&gt;</span>
+                    </div>
+                </div>
+                <button class="whiteButton" onclick="copyToClipboard();">Copy link</button>
+            </div>
+        </div>
+    </article>
+</div>
+	<div class="blur"> </div>
+<script src="/js/cardcopy.js"></script>
+</body>

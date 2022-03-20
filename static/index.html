@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:url" content="https://gitofolio.com">
+	<meta property="og:title" content="Gitofolio">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://user-images.githubusercontent.com/62425964/155997576-1171511b-1fa7-41bc-949a-5b2f5c0f4024.png"/>
+    <meta property="og:description" content="💎 Decorate Github, Notion, Blog etc...">
+    <title>Gitofolio</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      $(document).ready( function() {
+          $("header").load("/common/header.html");
+          $("footer").load("/common/footer.html");
+      });
+    </script>
+</head>
+<body>
+    <div class="container" >
+            <header></header>
+            <article>
+                <div class="article_background">
+                    <img class="background" src="/img/background.jpg"/>
+                </div>
+                    <div class="total_article">
+                        <div class="main">
+                            <img class="card" src="/img/bigcard3.svg" />
+                            <p class="maintext">GitoFolio</p>
+                            <p class="subtext">Make resume card, Manage resume</p>
+                            <button class="textbutton" onclick="loginCheck();">Get resume cards</button>
+                        </div>
+                        <div class="content">
+                            <div class="content_background1">
+                                <img class="fadein" id="bigcard1" src="/img/bigcard1.svg" />
+                                <img class="fadein" id="bigcard2" src="/img/bigcard2.svg" />
+                                <img class="fadein" id="bigcard3" src="/img/bigcard3.svg" /> 
+                            </div>
+                            <div class="content_text1">
+                                <p>
+								Decorate<br>
+								Github, Notion, Blog etc.<br>
+                                With resume cards<br>	
+                                </p>
+                            </div>
+                        <div class="content_text2">
+                        <p>You can upload your own resume card<br>
+                            to document that can insert an image as a link.<br>
+                            <br>
+                            Examples...<br>
+							: <a href="https://github.com/devxb"><span class="using_sample">Github</span></a><br>
+                        </p>
+                        <button class="textbutton" onclick="loginCheck();">Get resume cards</button>
+                    </div>
+                    <div class="content_text3">
+                        <div class="content_background2">
+                            <img class="chart" src="/img/chart.svg" />
+                        </div>
+                        <p class="text3_1">
+                            Check<br>
+                            Resume visitors using<br>
+                            traffic statistics
+                        </p>
+                        <p class="text3_2">
+                            service resume traffic statistics<br>
+                            <br>
+                            Check out and manage<br>
+                            your resume with our traffic statistics service<br>
+                        </p>
+                    </div>
+                    <div class="content_text4">
+                        <p class="text4_3">Register with github account<br>
+                        Make and manage beautiful resume card</p>
+                        <button class="textbutton" onclick="loginCheck();">Get resume cards</button>
+                    </div>
+                    <div class="content_text5">
+                        <p class="today">Today</p>
+                        <p class="visited_num">0</p>
+                    </div>
+                </div>
+            </div>
+            
+            </article>
+            <footer></footer>
+
+    </div>
+
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>

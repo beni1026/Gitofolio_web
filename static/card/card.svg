@@ -1,0 +1,57 @@
+ <svg width="353" height="214" viewBox="0 0 353 214" fill="none" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <script xlink:href="card.js" />
+        <script><![CDATA[
+        let gitName = document.getElementById("name");
+        let mainText = document.getElementById("maintext");
+        let starNum = document.getElementById("star");
+        gitName.textContent = 'java';
+        ]]>
+    </script>
+        <g filter="url(#filter0_d_493:494)">
+            <rect x="4" y="4" width="345" height="206" rx="5" fill="white" />
+        </g>
+        <text id="name" x="70" y="42"  fill="black"> Name </text>
+        <text id ="bygit" x="70" y="60" > by gitofolio</text>
+
+        <path id = "arrow"
+            d="M314 190C313.448 190 313 190.448 313 191C313 191.552 313.448 192 314 192V190ZM329.707 191.707C330.098 191.317 330.098 190.683 329.707 190.293L323.343 183.929C322.953 183.538 322.319 183.538 321.929 183.929C321.538 184.319 321.538 184.953 321.929 185.343L327.586 191L321.929 196.657C321.538 197.047 321.538 197.681 321.929 198.071C322.319 198.462 322.953 198.462 323.343 198.071L329.707 191.707ZM314 192H329V190H314V192Z"
+            fill="#2D2D2D" />
+    
+        <circle class ="pfcircle" cx="36.5" cy="36.5" r="22.5" fill="url(#pattern0)" />
+        
+        
+        <text transform="translate(60,55)" id="maintext"> 
+            <textPath xlink:href="#path1" fill="black" >
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+            </textPath>
+        </text>
+        <path class="star"
+            d="M311.524 25.4635C311.674 25.0029 312.326 25.0029 312.476 25.4635L313.908 29.8734C313.975 30.0794 314.167 30.2188 314.384 30.2188H319.021C319.505 30.2188 319.706 30.8387 319.315 31.1234L315.563 33.8488C315.388 33.9761 315.315 34.2018 315.382 34.4078L316.815 38.8176C316.964 39.2783 316.437 39.6613 316.045 39.3766L312.294 36.6512C312.119 36.5239 311.881 36.5239 311.706 36.6512L307.955 39.3766C307.563 39.6613 307.036 39.2783 307.185 38.8176L308.618 34.4078C308.685 34.2018 308.612 33.9761 308.437 33.8488L304.685 31.1234C304.294 30.8387 304.495 30.2188 304.979 30.2188H309.616C309.833 30.2188 310.025 30.0794 310.092 29.8734L311.524 25.4635Z"
+            fill="#FFE381" />
+        <text id="starnum" x="322" y="37"> 5</text>
+        <defs>
+            <path id="path1" d="M10, 30 H250 M10, 50 H250 M10,70 H250 M10, 90 H250 M10, 110 H250 M10, 130 H250 M10"></path>
+            <filter id="filter0_d_493:494" x="0" y="0" width="353" height="214" filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha" />
+                <feOffset />
+                <feGaussianBlur stdDeviation="2" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_493:494" />
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_493:494" result="shape" />
+            </filter>
+            <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                <use xlink:href="#image0_493:494" transform="scale(0.00217391)" />
+            </pattern>
+            <image id="image0_493:494" width="460" height="460"
+                 xlink:href="../img/img.jpg" />
+        </defs>
+    </svg>
+
+    
+    

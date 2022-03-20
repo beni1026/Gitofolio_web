@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gitofolio - personal page</title>
+  <link rel="stylesheet" href="/css/personal_page.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+      $(document).ready( function() {
+          $("header").load("/common/header.html");
+          $("footer").load("/common/footer.html");
+      });
+</script>
+</head>
+<body>
+  <div class="container" >
+    <header></header>
+    <article>
+      <content class="user-info">
+        <div class="profile">
+          <div class="image"> 
+            <img id="pfimg" src="/img/profile.svg" />
+            <p class="active">계정삭제</p>
+          </div>
+          <div class="title">
+            <p class="name">User</p>
+            <p class="desc">
+              Gitofolio-manager<br>
+              Make portfolio card, Manage portfolio
+            </p>
+          </div>    
+        </div>        
+        <div class="stat">
+          <div class="status_div">
+            <div>
+              <p class="status">Portfolios</p>
+              <p id="cardnum" class="num">0</p>
+            </div>
+            <div>
+              <p class="status">Total visitor</p>
+              <p id="visitnum" class="num">0</p>
+            </div>
+          </div>
+        </div>
+      </content>
+
+      <content class="main-content">
+          <div class="main-content-left">
+            <p class="potofolio_manager">Potofolio manager</p>
+            <div class="card_list">
+              <div id="card" class="card">
+                <img class="plus" src="/img/plus.png" onclick="location.href = '/card/maker'" />
+              </div>
+            </div>
+          </div>
+          <div class="main-content-right">
+            <div class="statistics">
+            <p class="days_stat">7일 방문자 통계</p>
+            <div class="chart">
+              <div class="bar"><p class="barNum"></p></div>
+              <div class="bar"><p class="barNum"></p></div>
+              <div class="bar"><p class="barNum"></p></div>
+              <div class="bar"><p class="barNum"></p></div>
+              <div class="bar"><p class="barNum"></p></div>
+              <div class="bar"><p class="barNum"></p></div>
+              <div class="bar"><p class="barNum"></p></div>
+            </div>
+            <div class="chart_num">
+              <p class="day"></p>
+              <p class="day">-</p>
+              <p class="day">-</p>
+              <p class="day">-</p>
+              <p class="day">-</p>
+              <p class="day">-</p>
+              <p class="day">-</p>
+            </div>
+          </div>
+          <div class="references">
+            <p class="references_main">Referring sites</p>
+            <p class="sites">   
+            </p>
+          </div>
+        </div>
+      </content>  
+    </article>
+    
+    <footer></footer>
+  </div>
+  <script type="text/javascript" src="/js/personal_page.js"></script>
+</body>
+</html>

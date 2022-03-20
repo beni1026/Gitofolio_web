@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>amazing...</title>
+</head>
+<body>
+<script>
+
+    var getCert = function () {
+        var cert = "";
+
+        var search = location.search;
+        var params = new URLSearchParams(search);
+        var cert = params.get("cert");
+        console.log(cert);
+        return cert;
+    };
+
+    if (document.URL.match("cert")) {
+        //console.log("OK!cool!");
+        fetch("/login", {
+            method: "POST",
+            headers: {
+                credentials: "omit",
+                mode: "cors",
+                Vary: "origin",
+                "Content-Type": "application/json;charset=UTF-8",
+            },
+            body: JSON.stringify({
+                cert: getCert(),
+            }),
+        }).then((res) => {
+            console.log(res);
+            const arr = res.headers.get("Authorization").split(" ");
+            localStorage.setItem("type", arr[0]);
+            localStorage.setItem("token", arr[1]);
+            window.location.href = "/";
+        });
+    }
+    else {
+        window.location.href = "/login";
+    }
+
+</script>
+</body>
+</html>

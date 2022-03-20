@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+        #name {
+            fill : black;
+            font : bold 18px Noto Sans;
+        }
+        #bygit {
+            fill : #C4C4C4;
+            font : 12px Noto Sans;
+        }
+        #maintext {
+            fill : black;
+            font: 12px Noto Sans;
+        }
+        #starnum {
+            fill : black;
+            font : bold 10px  Noto Sans;
+        }

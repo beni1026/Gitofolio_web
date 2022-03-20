@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    header {
+      margin: 0 auto;
+      position: fixed;
+      width: 100%;
+      min-width: 1000px;
+      height: 50px;
+      background-color: rgba(255, 255, 255, 0.8);
+      box-shadow: 0px 1px 1px rgba(45, 45, 45, 0.05);
+      display: flex;
+      justify-content: center;
+      z-index: 100;
+      top: 0;
+      left:0;
+      right:0;
+    }
+
+    header div {
+      width: 100%;
+      margin: 0;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    a {
+      text-decoration-line: none;
+      color: #2d2d2d;
+    }
+    .bigSize,
+    .smallSize {
+      max-width: 1200px;
+    }
+    .login,
+    .user {
+      margin-right: 10px!important;
+    }
+    .userImg {
+      width: 40px;
+      height: 40px;
+      border-radius: 45px;
+    }
+    .user {
+      display: none;
+    }
+    /*네비게이션 왼쪽*/
+    .header-left {
+      width: fit-content;
+      margin: 0px;
+      margin-left: 10px;
+    }
+    .header-left a {
+      margin-left: 5px;
+      font-weight: 500;
+      font-size: 16px;
+    }
+    /* 네비게이션 오른쪽*/
+    .header-right {
+      width: fit-content;
+      margin: 0px;
+      justify-content: flex-end;
+    }
+    .header-right ul {
+      list-style: none;
+      font: 500 16px Noto Sans KR;
+    }
+    .header-right .nav li {
+      display: inline-flex;
+      margin: 0 20px;
+      vertical-align: middle;
+      align-items: center;
+    }
+    .header-right .donate {
+      border-radius: 5px;
+      padding: 10px 15px;
+      background-color: #FFE381;
+      text-align: center;
+    }
+    .header-right img {
+      border-radius: 50%;
+      height: 40px;
+      vertical-align: middle;
+      margin-left: 5px;
+    }
+    /*네비게이션 위쪽*/
+
+    .header-top {
+      height: 40px;
+      border-bottom: 1px solid #ededed;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .header-top .nav {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: space-between;
+    }
+    .header-top .nav li {
+      width: fit-content;
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+    }
+    .header-top .nav li:first-child {
+      margin-left: 10px;
+    }
+    .header-top .nav li:first-child:hover {
+      animation: move 1s infinite;
+    }
+    .header-top .nav li img {
+      margin-right: 10px;
+    }
+    /* 네비게이션 아래쪽*/
+    .header-bottom {
+      display: none;
+      width: fit-content;
+      margin: 15px 0px 0px 0px;
+      justify-content: flex-end;
+    }
+
+    .header-bottom ul {
+      list-style: none;
+      font: 500 16px Noto Sans KR;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header-bottom .nav li {
+      display: inline-flex;
+      margin-bottom: 20px;
+      vertical-align: middle;
+      align-items: center;
+      justify-content: center;
+    }
+    .header-bottom .nav li:hover {
+      font-weight: 700;
+    }
+    .header-bottom .donate {
+      border-radius: 5px;
+      padding: 10px 15px;
+      background-color: #ffe381;
+      text-align: center;
+    }
+    .header-bottom .nav li:last-child {
+      margin-bottom: 5px;
+    }
+    .header-bottom .nav li span {
+      width: 13px;
+      height: 13px;
+      border-left: 2px solid #c4c4c4;
+      border-top: 2px solid #c4c4c4;
+      box-sizing: border-box;
+      animation: moveArrow 1.5s infinite;
+    }
+    .nav {
+      margin: 0 auto;
+      padding: 0;
+      list-style: none;
+    }
+    li {
+      cursor: pointer;
+    }
+    .donate:hover {
+      filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
+      font-weight: 500 !important;
+    }
+    .getName {
+      width: fit-content;
+      margin: unset;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 23px;
+      color: #2d2d2d;
+    }
+    .dropdown {
+      flex-direction: column;
+      position: absolute;
+      display: flex;
+      align-self: center;
+      margin: 0;
+      top: 70px;
+      right: 10px;
+      bottom: 10px;
+      padding: 0px;
+      background: #ffffff;
+      border: 1px solid #e9e9e9;
+      box-sizing: border-box;
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+      border-radius: 5px;
+      height: fit-content;
+    }
+    .dropdown-menu {
+      width: fit-content;
+      padding: 0px;
+      display: block;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 23px;
+      color: #2d2d2d;
+      margin: 10px;
+    }
+    .dropdown-menu:hover {
+      animation: move 0.1s;
+    }
+    .divLine {
+      margin: 0px;
+      padding: 0px;
+      border: 0.5px solid #e9e9e9;
+      border-bottom: none;
+      width: 201px;
+      height: 0px;
+    }
+    .dropdown {
+      animation: slide-down 100ms ease-in forwards;
+      animation-iteration-count: 1;
+      transform-origin: top center;
+    }
+    .modal-wrapper {
+      position: fixed;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      margin: 0;
+      z-index: 105;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .modal {
+      background: white;
+      padding: 24px 16px;
+      border: 2px solid #e9e9e9;
+      border-radius: 4px;
+      width: 300px;
+      height: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-title {
+      height: 40px;
+      font-size: 16px;
+      font-weight: bold;
+      display: block;
+      margin: 0;
+      width: auto;
+    }
+    .modal-button {
+      width: fit-content;
+      margin: 0;
+    }
+    .loginAgain,
+    .close {
+      width: 100px;
+      height: 30px;
+      color: #2d2d2d;
+      background-color: white;
+      box-shadow: 0px 0px 4px rgb(0 0 0 / 25%);
+      border-radius: 5px;
+      margin: 20px 10px 0px 10px;
+    }
+    @media screen and (max-width: 1000px) {
+      header {
+        min-width: unset;
+        height: unset;
+      }
+      header div {
+        flex-direction: column;
+      }
+      .donate:hover {
+        font-weight: 500 !important;
+      }
+      .bigSize {
+        display: none!important;
+      }
+      .smallSize {
+        display: flex!important;
+      }
+    }
+    @media screen and (max-width: 600px) {
+      header {
+        position: fixed;
+      }
+    }
+    @keyframes slide-down {
+      0% {
+        transform: rotateX(-90deg);
+      }
+      30% {
+        transform: rotateX(-50deg);
+      }
+      70% {
+        transform: rotateX(20deg);
+      }
+      100% {
+        transform: rotateX(0deg);
+      }
+    }
+    @keyframes move {
+      0%,
+      100% {
+        transform: translate(0%, -0%);
+      }
+      50%{
+        transform: translate(0%, -10%);
+      }
+    }
+    @keyframes moveArrow {
+      0%,
+      100% {
+        transform: rotate(45deg) translate(0, 0);
+      }
+      50% {
+        transform: rotate(45deg) translate(-2px, -2px);
+      }
+    }
+  </style>
+</head>
+<body>
+<header style="max-width: 1000px; box-shadow: none;">
+  <div class="bigSize">
+    <div class="header-left">
+      <img src="/img/icon.svg" />
+      <a class="mainPage" href="/">Gitofolio</a>
+    </div>
+    <div class="header-right">
+      <ul class="nav">
+		<li class="star" onclick="location.href='https://github.com/gitofolio/gitofolio/stargazers'"> Star </li>
+        <li class="about"  onclick="location.href='https://github.com/gitofolio/gitofolio/blob/main/UPDATE_LOG.md'">Release</li>
+        <li class="github"  onclick="location.href='https://github.com/gitofolio/gitofolio'">Github</li>
+        <li class="donate" onclick="location.href= 'http:'+'//api.gitofolio.com/restdocs'">API Docs</li>
+        <li class="login" onclick="location.href = '/login'">
+          Login<img src="/img/loginImg.svg" style="margin-left:10px;" /></li>
+        <li class="user">
+          <span class="getName"></span>
+          <img class="userImg" style="margin-left:10px;">
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="smallSize" style="display:none">
+    <div class="header-top">
+      <ul class="nav">
+        <li><img class="bottom-down" src="/img/Group 150.png" /></li>
+        <li>
+          <img src="/img/icon.svg" />
+          <a class="mainPage" href="/">Gitofolio</a>
+        </li>
+        <li class="login" onclick="location.href = '/login'">
+          Login<img src="/img/loginImg.svg" style="margin-left: 10px" />
+        </li>
+        <li class="user">
+          <span class="getName"></span>
+          <img class="userImg" style="margin-left: 10px" />
+        </li>
+      </ul>
+    </div>
+    <div class="header-bottom">
+      <ul class="nav">
+        <li
+                class="donate"
+                onclick="location.href= 'https:'+'//api.gitofolio.com/restdocs'"
+        >
+          API Docs
+        </li>
+        <li
+                class="about"
+                onclick="location.href='https://github.com/gitofolio/gitofolio/blob/main/UPDATE_LOG.md'"
+        >
+          Release
+        </li>
+        <li
+                class="github"
+                onclick="location.href='https://github.com/gitofolio/gitofolio'"
+        >
+          Github
+        </li>
+		<li class="star" onclick="location.href='https://github.com/gitofolio/gitofolio/stargazers'"> Star </li>
+        <li><span class="header-arrow"></span></li>
+      </ul>
+    </div>
+  </div>
+  <ul class="dropdown" style="display: none">
+    <li class="dropdown-menu">
+      <span class="getName" style="font-weight: 700"></span>
+    </li>
+    <hr class="divLine" />
+    <li
+            class="dropdown-menu"
+            onclick="personalPage();"
+    >
+      Manage & Traffic
+    </li>
+    <li class="dropdown-menu" onclick="location.href= '/card/maker'">
+      Make new card
+    </li>
+    <hr class="divLine" />
+    <li class="dropdown-menu" onclick="signOut();">Sign out</li>
+  </ul>
+</header>
+<div class="modal-wrapper" style="display: none">
+  <div class="modal">
+    <div class="modal-title">로그인이 종료되었습니다!</div>
+    <div class="modal-button">
+      <button class="loginAgain" onclick="signOut();">다시 로그인</button>
+      <button class="close" onclick="loginClose();">닫기</button>
+    </div>
+  </div>
+</div>
+<script>
+  var name="";
+  var userImg = document.querySelectorAll(".userImg");
+  var loginTag = document.getElementsByClassName("login");
+  var userTag = document.getElementsByClassName("user");
+  var dropdownTag = document.getElementsByClassName("dropdown")[0];
+  var dropdownStyle = document.getElementsByClassName("dropdown")[0].style;
+  var exceptArray = [
+    "user",
+    "getName",
+    "userImg",
+    "dropdown",
+    "dropdown-menu",
+  ];
+  var bottomDown = document.getElementsByClassName("bottom-down")[0];
+  var bottom = document.getElementsByClassName("header-bottom")[0];
+  var arrow = document.getElementsByClassName("header-arrow")[0];
+
+  function isLogin() {
+    if (
+            (localStorage.token == null ||
+            localStorage.token == undefined) &&
+            (localStorage.type == null ||
+            localStorage.type == undefined)
+    ) {
+      for (var p=0; p<userTag.length; p++) userTag[p].style.display = "none";
+      for (var p=0; p<loginTag.length; p++) loginTag[p].style.display = "line-flex";
+    } else {
+      fetch("https://api.gitofolio.com/user", {
+        headers: {
+          credentials: "omit",
+          mode: "cors",
+          Vary: "origin",
+          "Content-Type": "application/json",
+          Authorization:
+                  localStorage.getItem("type") +
+                  " " +
+                  localStorage.getItem("token"),
+        },
+      })
+              .then((res) => {
+                if (res.status < 400) return res.json();
+                else {
+                  if (res.status == 401) signOut();
+                  else if (res.status == 404 || ((!localStorage.hasOwnProperty("type")) && (!localStorage.hasOwnProperty("token")))) {
+                    document.querySelector(".modal-wrapper").style.display =
+                            "flex";
+                  }
+
+                }
+              })
+              .then((req) => {
+                var tmp = document.querySelectorAll(".getName");
+                for (var p in tmp) {
+                  document.querySelectorAll(".getName")[p].innerHTML = req.name;
+                  name = req.name;
+                }
+                for(var p=0;p<userImg.length; p++) userImg[p].setAttribute("src", req.profileUrl);
+              });
+      for (var p=0; p<userTag.length; p++) {
+        userTag[p].style.display = "line-flex";
+        console.log(userTag[p].style.display);
+      }
+      for (var p=0; p<loginTag.length; p++) loginTag[p].style.display = "none";
+    }
+  }
+
+  isLogin();
+
+  function loginClose() {
+    document.querySelector(".modal-wrapper").style.display = "none";
+    for (var p=0; p<userTag.length; p++) userTag[p].style.display = "none";
+    for (var p=0; p<loginTag.length; p++) loginTag[p].style.display = "line-flex";
+    localStorage.removeItem("type");
+    localStorage.removeItem("token");
+    location.href = "/";
+  }
+  for (var p=0; p<userTag.length; p++) {
+    userTag[p].addEventListener("mouseover", function (e) {
+      dropdownStyle.display = "flex";
+
+    });
+  }
+  dropdownTag.addEventListener("mouseover", function (e) {
+    dropdownStyle.display = "flex";
+  });
+  dropdownTag.addEventListener("mouseleave", function (e) {
+    dropdownStyle.display = "none";
+  });
+  bottomDown.addEventListener("mouseover", function (e) {
+    bottom.style.display = "flex";
+  });
+  arrow.addEventListener("click", function (e) {
+    bottom.style.display = "none";
+  });
+  function signOut() {
+    localStorage.removeItem("type");
+    localStorage.removeItem("token");
+    window.location.href = "/";
+  }
+  function personalPage(){
+    window.location.href = "/user/"+name;
+  }
+
+  //window.addEventListener("scroll", console.log("scroll"));
+</script>
+</body>
+</html>

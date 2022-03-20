@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
+*{margin: 0 auto; padding: 0; font-family: Noto Sans KR; color: #2D2D2D;  } 
+
+
+/* 본문(article) */
+
+article {
+    width: 100%;
+    height: 1200px;
+    box-shadow: 0px 2px 1px rgba(45, 45, 45, 0.1);
+	margin-top : 50px;
+}
+
+/*본문 윗부분(user-info)*/
+article .user-info {
+  width: 1200px;
+  height: 250px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  box-shadow: 0px 1px 1px rgba(45, 45, 45, 0.1);
+}
+
+.user-info .profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+}
+
+.profile .image{
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.profile img {
+  width: 150px;
+  border-radius: 50%;
+  border: 1px solid #C4C4C4;
+}
+
+.profile .title{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  width: 100%;
+}
+
+
+
+.profile .name {
+  font-family: Noto Sans KR;
+  font-weight: 700;
+  font-size: 50px;
+  margin-left: 0;
+  padding-bottom: 5px;
+  width: 90%;
+  border-bottom: 1px solid #E9E9E9;
+  text-overflow: ellipsis;
+}
+
+.profile .desc{
+  font-family: Noto Sans KR;
+  font-weight: 400;
+  font-size: 14px;
+  margin-top: 10px;
+  width: 100%;
+  color: #C4C4C4;
+}
+
+
+.profile .active {
+  font-family: Noto Sans KR;
+  font-weight: 300;
+  font-size: 14px;
+  color: #C4C4C4;
+  margin-top: 10px;
+  cursor: pointer;
+  display: none;
+}
+
+.user-info .stat {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+  height: 80%;
+  border-left: 1px solid #E9E9E9;
+}
+
+.stat div {
+  width: 100%;
+  margin-top: 20px;
+  text-align: left;
+  justify-content: flex-start;
+  font-family: Noto Sans KR;
+  font-weight: bold;
+  font-size: 30px;
+  text-align: left;
+}
+
+.stat .stat_text {
+  margin-top: 0px;
+}
+
+
+.stat .status_div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-left: 40px; 
+}
+
+.stat .status_div div {
+  width: 130px;
+  height: 150px;
+  margin: auto 0;
+  margin-right: 30px;
+  border: 1px solid #E9E9E9;
+  text-align: center;
+}
+
+.status_div .status {
+  font-family: Noto Sans KR;
+  font-weight: 300;
+  font-size: 14px;
+  margin : 7px auto;
+  width: 90%;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #E9E9E9;
+}
+
+
+
+.status_div .num {
+  font-family: Noto Sans KR;
+  font-weight: 500;
+  font-size: 25px;
+  margin: 30px 0;
+}
+
+/*본문 아랫부분(main-content)*/
+article .main-content{
+  margin-top: 30px;
+  width: 1200px;
+  height: 900px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  position: relative;
+}
+
+
+
+.main-content-left{
+  position: absolute;
+  z-index: 10;
+  width: 32%;
+  height: 100%;
+  padding-right: 10px;
+  border-right: 1px solid #E9E9E9;
+}
+
+.main-content-left .potofolio_manager {
+  text-align: left;
+  font-family: Noto Sans KR;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.card_list{
+  margin-bottom: 50px;
+  height: 820px;
+  overflow-y: hidden;
+}
+
+.card_list:hover{
+  overflow-y: scroll;
+}
+
+.card_list::-webkit-scrollbar{
+}
+
+.card_list .card {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 10px;
+  margin-left: 0;
+}
+
+.main-content-left .plus {
+  width: 353px;
+  height: 190px;
+  display: none;
+}
+
+.plus:hover{
+  filter: brightness(0.8);
+  cursor: pointer;
+}
+
+.main-content .main-content-right {
+  position:  absolute;
+  z-index: -1;
+  display: flex;
+  width: 68%;
+  flex-direction: column;
+  left: 33%;
+}
+
+/* 차트부분 statistics*/
+
+.statistics {
+  width: 764px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+}
+
+.statistics .days_stat {
+  width: 100%;
+  font-family: Noto Sans KR;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.chart {
+  width: 100%;
+  height: 355px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  background-image: url("/img/chart_background.svg");
+}
+
+.chart .bar {
+  position: relative;
+  width: 30px;
+  margin-bottom: 2px;
+  background: rgba(255, 227, 129, 0.5);
+}
+
+.bar p{
+  position: absolute;
+  left: -30px;
+  top: -25px;
+  width: 90px;
+  text-align: center;
+  font-family: Noto Sans KR;
+  font-size: 16px;
+  font-weight: 400;
+  color : #C4C4C4;
+}
+
+.chart_num {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: space-between;
+}
+
+
+
+.chart_num p {
+  font-family: Noto Sans KR;
+  width: 80px;
+  font-size: 16px;
+  font-weight: 400;
+  color : #C4C4C4;
+}
+
+.references {
+  width: 764px;
+  margin-left: 40px;
+  margin-top: 50px;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+.references_main {
+  width: 100%;
+  text-align: center;
+  font-family: Noto Sans KR;
+  font-weight: bold;
+  font-size: 16px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #E9E9E9;
+}
+.references hr{
+  width: 100%;
+  border: 1px solid #E9E9E9;
+  margin: 10px;
+}
+
+.sites {
+  font-family: Noto Sans KR;
+  font-size: 16px;
+  font-weight: 400;
+  width: 100%;
+  padding: 0 20%;
+  height: 340px;
+  overflow-y: scroll;
+}

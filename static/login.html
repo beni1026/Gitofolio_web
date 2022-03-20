@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="/css/login.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />	
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	  <title>Gitofolio - login</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="blur">
+		</div>
+      <article>
+        <div class="policy">
+          Click here to watch policy<br>
+          <img src="/img/big_arrow.png" class="arrow"/>
+        </div>
+        <div class="box">
+			<div class="title"><a href="/">Gitofolio</a> - login</div>
+          <div class="explain">Make portfolio card, Manager portfolio</div>
+          
+          <button class="github" type="submit" onclick="login();">Login as github</button>
+          <button class="google" type="submit" onclick="">
+            Login as 
+            <span class="b">G</span><span class="r">o</span><span class="y">o</span><span class="b">g</span><span class="g">l</span><span class="r">e</span>
+          </button>
+          <button class="kakao" type="submit" onclick="">Login as KaKao</button>
+
+          <hr />
+          <p>
+            Gitofolio는 오픈소스 프로젝트로 무료로 서비스됩니다.<br>
+            레포지토리 링크<br><br>
+            <a class="link" href="https://github.com/gitofolio/gitofolio">바로가기</a><br><br>
+			  ⭐ 스타를 눌러주세요. 개발에 큰 도움이 됩니다. <br>
+			  <a class="link" href="https://github.com/gitofolio/gitofolio/stargazers"> 스타 누르러 가기</a><br><br>
+            문의 : develxb@gmail.com
+          </p>
+        </div>
+        <div class="policy_text">
+          <div class="policy_title">Gitofolio - Policy</div>
+            <div class="rule_main">1. Gitofolio는 유저로부터 다음 정보를 수집, 저장합니다.</div>
+            <div class="rule_sub">1-1 OAuth application</div>
+            <ul class="rule_sub">
+              <li>연동된 계정의 유저 이름</li>
+              <li>연동된 계정의 유저 프로필 이미지</li>
+            </ul>
+            <div class="rule_sub">1-2 Portfolio(Resume) Card </div>
+            <ul class="rule_sub">
+              <li>포트폴리오 카드에 연결된 사이트에 대한 일일 방문자 수, 유입경로</li>
+              <li>포트폴리오 카드가 유저에게 노출된 횟수</li>
+              <li>포트폴리오 카드에 작성된 내용 과 포트폴리오 카드와 연동된 사이트 url</li>
+            </ul>
+            <div class="rule_sub">또한, 최고의 경험을 위해 유저의 일부 동작을 로깅 하고있습니다.<br><br></div>
+          
+            <div class="rule_main">2. Portfolio card policy</div>
+            <div class="rule_sub">
+              아래의 경우를 제외한 상황에서 Gitofolio로 혹은 Gitofolio-api로 생성한 포트폴리오 카드에 대한 권한은 카드를 생성한 유저에게 있습니다.
+            </div>  
+            <ul class="rule_sub">
+              <li>Portfolio card와 연결된 사이트가 portfolio card에 작성</li>
+              <li>타인에게 불쾌감을 주는 portfolio card의 내용 혹은 연결된 사이트</li>
+              <li>사회적 윤리에 반하는 내용 혹은 연결된 사이트</li>
+              <li>금전적 목적을 위해 Portfolio card를 악용 할 경우</li>
+            </ul>
+            <div class="rule_sub">
+              이 외의 모든 Gitofolio 운영 목적과 부합하지 않는 카드들은 무통보 삭제될 수 있으며, 정도에 따라 계정이 이용정지 당할 수 있습니다.<br><br>
+              Gitofolio는 무료로 운영되는 오픈소스 프로젝트입니다. <br><br>
+              Open source repo : https://github.com/gitofolio/gitofolio<br><br>
+              License : https://github.com/gitofolio/gitofolio/LICENSE <br>
+            </div>
+        </div>
+      </article>
+    </div>
+    <script type="text/javascript" src = "/js/login.js"></script>
+  </body>
+</html>
